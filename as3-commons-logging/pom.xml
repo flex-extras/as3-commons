@@ -88,6 +88,10 @@
     </developer>
   </developers>
 
+  <build>
+    <testSourceDirectory>lalala</testSourceDirectory>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.flex.flexunit</groupId>
