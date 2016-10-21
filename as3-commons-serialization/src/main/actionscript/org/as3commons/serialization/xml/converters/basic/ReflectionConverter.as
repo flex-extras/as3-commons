@@ -16,9 +16,9 @@
 package org.as3commons.serialization.xml.converters.basic
 {
 	import flash.utils.getDefinitionByName;
-	
-	import org.as3commons.reflect.MetaData;
-	import org.as3commons.reflect.MetaDataArgument;
+
+	import org.as3commons.reflect.Metadata;
+	import org.as3commons.reflect.MetadataArgument;
 	import org.as3commons.reflect.Type;
 	import org.as3commons.reflect.Variable;
 	import org.as3commons.serialization.xml.ConverterRegistery;
@@ -80,7 +80,7 @@ package org.as3commons.serialization.xml.converters.basic
 				
 				
 				//Since this value was populated from an attirbute, inject metadata to make it persistent in output XML
-				var metadata:MetaDataArgument = new MetaDataArgument("attribute","true");
+				var metadata:MetadataArgument = new MetadataArgument("attribute","true");
 				addMetadataToProperty(obj, attributeName,metadata);
 				
 			}
@@ -146,7 +146,7 @@ package org.as3commons.serialization.xml.converters.basic
 					var str:String = xml.toXMLString();
 					if ( str.indexOf("<![CDATA[") != -1 ){
 						
-						var metadata:MetaDataArgument = new MetaDataArgument("cdata","true");
+						var metadata:MetadataArgument = new MetadataArgument("cdata","true");
 						addMetadataToProperty(obj,propName,metadata);
 						
 					}
@@ -202,7 +202,7 @@ package org.as3commons.serialization.xml.converters.basic
 			return;
 		}
 		
-		protected function addMetadataToProperty(obj:Object,propertyName:String,newArg:MetaDataArgument):void{
+		protected function addMetadataToProperty(obj:Object,propertyName:String,newArg:MetadataArgument):void{
 			
 			var type:Type = Type.forInstance(obj);
 			
@@ -210,13 +210,13 @@ package org.as3commons.serialization.xml.converters.basic
 				
 				if ( variable.name == propertyName ){
 					
-					if ( variable.hasMetaData("X2A") ) {
+					if ( variable.hasMetadata("X2A") ) {
 						
 						//If it already has some X2A metadata, see if it already has this particular MetaDataArgument
 							
-						var metadata:Array = variable.getMetaData("X2A");
+						var metadata:Array = variable.getMetadata("X2A");
 						
-						for each ( var arg:MetaDataArgument in MetaData( metadata[0] ).arguments ){						
+						for each ( var arg:MetadataArgument in Metadata( metadata[0] ).arguments ){
 													
 							if ( arg.key == newArg.key ){
 								//It already has this argument, so ignore new one						
@@ -224,11 +224,11 @@ package org.as3commons.serialization.xml.converters.basic
 							}
 						}
 						
-						MetaData( metadata[0] ).arguments.push( newArg );
+						Metadata( metadata[0] ).arguments.push( newArg );
 						
 					}
 					
-					variable.addMetaData( new MetaData("X2A", [newArg] ) );
+					variable.addMetadata( new Metadata("X2A", [newArg] ) );
 					return;
 				}
 			}

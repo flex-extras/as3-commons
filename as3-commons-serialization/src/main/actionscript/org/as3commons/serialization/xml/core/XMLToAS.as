@@ -15,22 +15,15 @@
  */
 package org.as3commons.serialization.xml.core
 {
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.events.SecurityErrorEvent;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
-	
-	import org.as3commons.reflect.MetaData;
-	import org.as3commons.reflect.MetaDataArgument;
-	import org.as3commons.reflect.Type;
-	import org.as3commons.reflect.Variable;
-	import org.as3commons.serialization.xml.ConverterRegistery;
-	import org.as3commons.serialization.xml.XMLConverter;
-	import org.as3commons.serialization.xml.converters.IConverter;
-	import org.as3commons.serialization.xml.mapper.Mapper;
+import org.as3commons.reflect.Metadata;
+import org.as3commons.reflect.MetadataArgument;
+import org.as3commons.reflect.Type;
+import org.as3commons.reflect.Variable;
+import org.as3commons.serialization.xml.ConverterRegistery;
+import org.as3commons.serialization.xml.converters.IConverter;
+import org.as3commons.serialization.xml.mapper.Mapper;
 
-	public class XMLToAS
+public class XMLToAS
 	{
 		
 		public static function objectFromXML(xml:XML,contextXML:XML,returnType:Class=null):*{
@@ -57,19 +50,19 @@ package org.as3commons.serialization.xml.core
 				
 		}
 		
-		private static function addMetadataToProperty(obj:Object,propertyName:String,newArg:MetaDataArgument):void{
+		private static function addMetadataToProperty(obj:Object,propertyName:String,newArg:MetadataArgument):void{
 			
 			var type:Type = Type.forInstance(obj);
 			
 			for each ( var variable:Variable in type.variables ){
 				
-				if ( variable.name == propertyName && variable.hasMetaData("X2A") ){
+				if ( variable.name == propertyName && variable.hasMetadata("X2A") ){
 					
 					//If it already has some X2A metadata, see if it already has this particular MetaDataArgument			
-					var metadata:MetaData = variable.getMetaData("X2A")[0];
-					if ( metadata.hasArgumentWithKey(newArg.key) ) return;			
+					var metadata:Metadata = variable.getMetadata("X2A")[0];
+					if ( metadata.hasArgumentWithKey(newArg.key) ) return;
 										
-					variable.addMetaData( new MetaData("X2A", [newArg] ) );
+					variable.addMetadata( new Metadata("X2A", [newArg] ) );
 					return;
 					
 				}

@@ -17,7 +17,7 @@ package org.as3commons.serialization.xml.core {
 	import flash.system.ApplicationDomain;
 
 	import org.as3commons.lang.StringUtils;
-	import org.as3commons.reflect.MetaData;
+	import org.as3commons.reflect.Metadata;
 	import org.as3commons.reflect.Type;
 	import org.as3commons.reflect.Variable;
 	import org.as3commons.serialization.xml.ConverterRegistery;
@@ -128,10 +128,10 @@ package org.as3commons.serialization.xml.core {
 
 			for each (var variable:Variable in parentType.variables) {
 
-				if (variable.name == propertyName && variable.hasMetaData("X2A")) {
+				if (variable.name == propertyName && variable.hasMetadata("X2A")) {
 
-					var metadata:Array = variable.getMetaData("X2A");
-					return MetaData(metadata[0]).hasArgumentWithKey(metadataName);
+					var metadata:Array = variable.getMetadata("X2A");
+					return Metadata(metadata[0]).hasArgumentWithKey(metadataName);
 
 				}
 

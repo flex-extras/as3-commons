@@ -1,104 +1,70 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<parent>
-		<groupId>org.as3commons</groupId>
-		<artifactId>parent-pom</artifactId>
-		<version>4-SNAPSHOT</version>
-		<relativePath>../parent-pom/pom.xml</relativePath>
-	</parent>
+  <modelVersion>4.0.0</modelVersion>
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.as3commons</groupId>
-	<artifactId>as3commons-stageprocessing</artifactId>
-	<packaging>swc</packaging>
-	<version>1.1.1-SNAPSHOT</version>
-	<name>AS3Commons StageProcessing</name>
-	<url>http://www.as3commons.org/stageprocessing</url>
-	<description>
-		A Library that provides an API for intercepting objects that have been added to or removed from the Flash stage.
-	</description>
-	<inceptionYear>2011</inceptionYear>
+  <parent>
+    <groupId>org.as3commons</groupId>
+    <artifactId>parent-pom</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+    <relativePath>../parent-pom/pom.xml</relativePath>
+  </parent>
 
-	<scm>
-		<developerConnection>scm:svn:https://as3-commons.googlecode.com/svn/trunk/as3-commons-stageprocessing</developerConnection>
-		<url>scm:svn:http://as3-commons.googlecode.com/svn/trunk/as3-commons-stageprocessing</url>
-		<connection>scm:svn:https://as3-commons.googlecode.com/svn/trunk/as3-commons-stageprocessing</connection>
-	</scm>
+  <artifactId>as3commons-stageprocessing</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <packaging>swc</packaging>
 
-	<distributionManagement>
-		<site>
-			<id>yoolab.org-as3commons</id>
-			<url>scp://www.as3commons.org/srv/www/yoolab/www.as3commons.org/public_html/as3-commons-stageprocessing</url>
-		</site>
-	</distributionManagement>
+  <name>AS3Commons StageProcessing</name>
+  <url>http://www.as3commons.org/stageprocessing</url>
+  <description>
+    A Library that provides an API for intercepting objects that have been added to or removed from the Flash stage.
+  </description>
+  <inceptionYear>2011</inceptionYear>
 
-	<developers>
-		<developer>
-			<id>rzwaga</id>
-			<name>Roland Zwaga</name>
-			<email>roland.zwaga [at] stackandheap.com</email>
-			<url>http://zwaga.blogspot.com/</url>
-			<organization>Stack &amp; Heap</organization>
-			<organizationUrl>http://www.stackandheap.com</organizationUrl>
-			<timezone>+1</timezone>
-		</developer>
-	</developers>
+  <developers>
+    <developer>
+      <id>rzwaga</id>
+      <name>Roland Zwaga</name>
+      <email>roland.zwaga [at] stackandheap.com</email>
+      <url>http://zwaga.blogspot.com/</url>
+      <organization>Stack &amp; Heap</organization>
+      <organizationUrl>http://www.stackandheap.com</organizationUrl>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
 
-	<build>
+  <dependencies>
 
-		<plugins>
+    <dependency>
+      <groupId>org.as3commons</groupId>
+      <artifactId>as3commons-lang</artifactId>
+      <version>3.0.0-SNAPSHOT</version>
+      <type>swc</type>
+    </dependency>
 
-			<plugin>
-				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-					<tagBase>
-						https://as3-commons.googlecode.com/svn/tags/as3-commons-stageprocessing
-					</tagBase>
-				</configuration>
-			</plugin>
+    <dependency>
+      <groupId>org.as3commons</groupId>
+      <artifactId>as3commons-logging</artifactId>
+      <version>3.0.0-SNAPSHOT</version>
+      <type>swc</type>
+    </dependency>
 
-		</plugins>
+    <dependency>
+      <groupId>asmock</groupId>
+      <artifactId>asmock</artifactId>
+      <version>1.0</version>
+      <type>swc</type>
+      <scope>test</scope>
+    </dependency>
 
-	</build>
+    <dependency>
+      <groupId>asmock</groupId>
+      <artifactId>asmock-flexunit4.1</artifactId>
+      <version>1.0</version>
+      <type>swc</type>
+      <scope>test</scope>
+    </dependency>
 
-	<dependencies>
-
-		<dependency>
-			<groupId>org.as3commons</groupId>
-			<artifactId>as3commons-lang</artifactId>
-			<version>0.3.6</version>
-			<type>swc</type>
-		</dependency>
-
-		<dependency>
-			<groupId>org.as3commons</groupId>
-			<artifactId>as3commons-logging</artifactId>
-			<version>2.7</version>
-			<type>swc</type>
-			<exclusions>
-				<exclusion>
-					<groupId>com.adobe.flex.framework</groupId>
-					<artifactId>air-framework</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>asmock</groupId>
-			<artifactId>asmock</artifactId>
-			<version>1.0</version>
-			<type>swc</type>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>asmock</groupId>
-			<artifactId>asmock-flexunit4.1</artifactId>
-			<version>1.0</version>
-			<type>swc</type>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
+  </dependencies>
 
 </project>

@@ -210,7 +210,7 @@ import org.as3commons.swc.catalog.SWCCatalog;
 import org.as3commons.swc.catalog.reader.impl.XMLCatalogReader;
 import org.as3commons.zip.Zip;
 import org.as3commons.zip.ZipErrorEvent;
-import org.as3commons.zip.ZipFile;
+import org.as3commons.zip.IZipFile;
 
 class LoadLibraryOperation extends AbstractOperation {
 
@@ -317,7 +317,7 @@ class LoadLibraryOperation extends AbstractOperation {
 	}
 
 	private function readCatalog():void {
-		var catalogFile:ZipFile = _zip.getFileByName(CATALOG_FILE_NAME);
+        var catalogFile:IZipFile = _zip.getFileByName(CATALOG_FILE_NAME);
 		var catalogData:String = catalogFile.getContentAsString(false);
 		var reader:XMLCatalogReader = new XMLCatalogReader(catalogData);
 		var catalog:SWCCatalog = reader.read();
@@ -332,7 +332,7 @@ class LoadLibraryOperation extends AbstractOperation {
 	}
 
 	private function loadClasses():void {
-		var swfFile:ZipFile = _zip.getFileByName(LIBRARY_FILE_NAME);
+        var swfFile:IZipFile = _zip.getFileByName(LIBRARY_FILE_NAME);
 		var context:LoaderContext = new LoaderContext();
 		context.allowCodeImport = true;
 		context.applicationDomain = Type.currentApplicationDomain;

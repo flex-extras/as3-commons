@@ -1,14 +1,6 @@
 package {
-import org.as3commons.logging.setup.target.MonsterDebugger3LogTarget;
-import org.as3commons.logging.setup.target.mergeTargets;
-	import org.log5f.Level;
-	import org.log5f.core.Category;
-	import org.log5f.events.LogEvent;
-	import org.log5f.layouts.Log4JLayout;
-	import org.log5f.filters.Filter;
-	import org.log5f.appenders.XMLSocketAppender;
+	import org.as3commons.logging.setup.target.mergeTargets;
 	import flash.events.Event;
-	import org.log5f.Log5F;
 	import org.as3commons.logging.setup.target.ChainsawTarget;
 	import org.as3commons.logging.setup.target.SOSTarget;
 	import org.as3commons.logging.util.SWFInfo;
@@ -67,7 +59,7 @@ import org.as3commons.logging.setup.target.mergeTargets;
 			var mouseLogger: ILogger = getLogger("mouseLogger");
 			mouseLogger.info("{mouseX}, {mouseY}", this);
 			
-			logger.info("Hi {0}", [1])
+			logger.info("Hi {0}", [1]);
 			
 			logger.info( {Hello: "World"} );
 			logger.debug("My Text {0}ly is a {1}{2} and {1}{3}", [true, {nice:"andwarm"}, "house", 1.0] );
